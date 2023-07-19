@@ -8,6 +8,7 @@ use Symfony\Component\VarDumper\VarDumper;
 class AppendModelFillables
 {
 
+
     /**
      * @var AppendModelFillables
      * @author Shaarif<shaarifsabah5299@gmail.com>
@@ -30,8 +31,11 @@ class AppendModelFillables
         $alreadyExist = strpos( $getContentOfModel,'protected $fillable');
         # if false then update the Model
         if ($alreadyExist === false) {
-            $modelUpperBody  = substr($getContentOfModel, '0', 180);
-            $modelLowerBody  = substr($getContentOfModel, 180);
+            $offSet = strpos($getContentOfModel,'use HasFactory;') + 15;
+            $end = strpos($getContentOfModel,'}');
+            $modelUpperBody  = substr($getContentOfModel, '0', $offSet);
+            $modelLowerBody  = substr($getContentOfModel, $end);
+
             $fillAbles = [];
             # adding ColumnNames in array to append
             foreach ($columns as $column) {
