@@ -1,6 +1,6 @@
 <?php
 
-namespace src\Helper;
+namespace app\Helper;
 
 use Illuminate\Support\Facades\Schema;
 use Symfony\Component\VarDumper\VarDumper;
