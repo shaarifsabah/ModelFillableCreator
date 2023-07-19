@@ -35,7 +35,6 @@ class AppendModelFillables
             $end = strpos($getContentOfModel,'}');
             $modelUpperBody  = substr($getContentOfModel, '0', $offSet);
             $modelLowerBody  = substr($getContentOfModel, $end);
-
             $fillAbles = [];
             # adding ColumnNames in array to append
             foreach ($columns as $column) {
